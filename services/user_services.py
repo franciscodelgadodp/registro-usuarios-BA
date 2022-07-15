@@ -2,14 +2,12 @@
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 from uuid import uuid4
-from adapters import sql_alchemy_orm
 
-from models.user import UserCreate, User
+from models.user import UserCreate
 from adapters.sql_alchemy_orm import User as UserOrm, Scope
 from utils.hashing import bcrypt
 from utils.token import format_scope
 from utils.validations import validar_cp, validar_curp, validar_estado, validar_fecha, validar_municipio, validar_rfc, validar_telefono
-# from utils.token import format_scope
 
 
 def _validar_datos(user: UserCreate):
