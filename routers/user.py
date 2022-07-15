@@ -32,13 +32,9 @@ async def get_user(user_id: str, db: Session = Depends(get_db), get_current_user
     return user
 
 
-@router.put("/{user_id}", status_code=status.HTTP_202_ACCEPTED)
+@router.put("/{user_id}", status_code=status.HTTP_202_ACCEPTED, response_model=User)
 async def update_user(user_id: str, updated_user: UserUpdate, db: Session = Depends(get_db), get_current_user: User = Security(get_current_user, scopes=["user:update"])):
-    # try:
     return update_user_service(user_id, updated_user, db, get_current_user, ["user", "update"])
-    # except:
-    #     raise HTTPException(
-    #         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Error interno del servidor")
 
 
 @router.delete("/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
