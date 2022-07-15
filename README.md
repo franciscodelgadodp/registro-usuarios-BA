@@ -17,8 +17,9 @@ Python >= 3.6, un manejador de ambientes virtuales (venv, pipenv) y Make para co
 1. Inicializa un ambiente virtual de python
 2. Activa el ambiente
 3. Correr `make install`
-4. Correr `make start` to start the project
-5. Para la documentación ir a la url `localhost:8000/docs` or `localhost:8000/redoc`
+4. Crea una copia del archivo .env-example y renombrarlo .env llenando las variables con los valores indicados
+5. Correr `make start` to start the project
+6. Para la documentación ir a la url `localhost:8000/docs` or `localhost:8000/redoc`
 
 ## Explicación de la API
 
