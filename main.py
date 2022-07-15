@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 
 from adapters import sql_alchemy_orm
-from routers import user, authentication
+from routers import user, authentication, permission
 from utils.db import engine
 
 sql_alchemy_orm.Base.metadata.create_all(bind=engine)
@@ -10,7 +10,7 @@ sql_alchemy_orm.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 app.include_router(authentication.router)
-# app.include_router(product.router)
+app.include_router(permission.router)
 app.include_router(user.router)
 
 
