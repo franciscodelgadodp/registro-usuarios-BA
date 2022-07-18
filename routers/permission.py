@@ -33,7 +33,7 @@ async def get_scope(scope_id: str, db: Session = Depends(get_db), get_current_us
     return scope
 
 
-@router.put("/{scope_id}", status_code=status.HTTP_202_ACCEPTED)
+@router.put("/{scope_id}", status_code=status.HTTP_202_ACCEPTED, response_model=Scope)
 async def update_scope(scope_id: str, updated_scope: ScopeCreate, db: Session = Depends(get_db), get_current_user: User = Security(get_current_user, scopes=["scope:update"])):
     return update_scope_service(scope_id, updated_scope, db)
 

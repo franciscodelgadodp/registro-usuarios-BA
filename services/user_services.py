@@ -3,7 +3,7 @@ from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 from uuid import uuid4
 
-from models.user import UserCreate
+from models.user import UserCreate, User
 from adapters.sql_alchemy_orm import User as UserOrm, Scope
 from utils.hashing import bcrypt
 from utils.token import format_scope
